@@ -457,6 +457,11 @@ namespace System.Net
                 return status == Interop.NetSecurityNative.Status.GSS_S_COMPLETE;
             }
 
+            public override TReturn DeriveKeyFromSessionKey<TState, TReturn>(Func<ReadOnlySpan<byte>, TState, TReturn> keyDerivationFunction, TState state)
+            {
+                throw new NotImplementedException();
+            }
+
             private static Interop.NetSecurityNative.PackageType GetPackageType(string package)
             {
                 if (string.Equals(package, NegotiationInfoClass.Negotiate, StringComparison.OrdinalIgnoreCase))

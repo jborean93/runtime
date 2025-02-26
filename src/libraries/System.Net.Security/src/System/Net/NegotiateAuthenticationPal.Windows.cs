@@ -664,6 +664,11 @@ namespace System.Net
                 }
             }
 
+            public override TReturn DeriveKeyFromSessionKey<TState, TReturn>(Func<ReadOnlySpan<byte>, TState, TReturn> keyDerivationFunction, TState state)
+            {
+                throw new NotImplementedException();
+            }
+
             private static SafeFreeCredentials AcquireDefaultCredential(string package, bool isServer)
             {
                 return SSPIWrapper.AcquireDefaultCredential(
